@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Aafraa 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: #fff0f5;
+      overflow-x: hidden;
+    }
+
+    .page {
+      display: none;
+      width: 100%;
+      text-align: center;
+      padding: 50px;
+    }
+    .active { display: block; }
+
+    /* Floating Birthday Text */
+    .floating-text {
+      font-size: 3.5rem;
+      color: #ff69b4;
+      font-weight: bold;
+      animation: float 3s ease-in-out infinite;
+      margin-top: 150px;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* girta hua dil */
+    .heart {
+      position: fixed;
+      top: -10px;
+      color: #ff1493;
+      font-size: 1.5rem;
+      animation: fall linear forwards;
+      z-index: 1;
+    }
+    @keyframes fall {
+      to { transform: translateY(110vh); opacity: 0; }
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      background: #ff69b4;
+      color: white;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff1493;
+      transform: scale(1.05);
+    }
+
+    /* Lode ka letter */
+    .letter {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: left;
+      position: relative;
+      z-index: 2;
+    }
+    .letter h2 {
+      text-align: center;
+      color: #ff69b4;
+      margin-bottom: 20px;
+      font-family: "Brush Script MT", cursive;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Compliments */
+    .compliments { text-align: center; margin: 20px 0; }
+    .compliment-text {
+      display: none;
+      margin-top: 10px;
+      font-style: italic;
+      color: #ff1493;
+    }
+
+    /* Quiz */
+    .quiz {
+      margin: 30px 0;
+      text-align: center;
+    }
+    .quiz-item {
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 10px;
+      background: white;
+    }
+    .quiz-question { margin: 15px 0; font-weight: bold; }
+    .quiz-answer {
+      margin: 5px;
+      padding: 8px 15px;
+      border-radius: 15px;
+      background: #ffe4e1;
+      border: none;
+      cursor: pointer;
+    }
+    .quiz-result { margin-top: 10px; font-style: italic; color: #ff1493; }
+
+    /* Timeline */
+    .timeline {
+      margin: 30px 0;
+      border-left: 3px solid #ff69b4;
+      padding-left: 15px;
+    }
+    .timeline div { margin: 15px 0; }
+
+    /* Photos */
+    .photos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .polaroid {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transform: rotate(-2deg);
+      max-width: 200px;
+      text-align: center;
+    }
+    .polaroid:nth-child(2) { transform: rotate(2deg); }
+    .polaroid img { width: 100%; border-radius: 8px; }
+    .polaroid p {
+      margin-top: 5px;
+      font-size: 0.9rem;
+      color: #555;
+      font-family: "Brush Script MT", cursive;
+    }
+
+    /* Sparkles */
+    .sparkle {
+      position: fixed;
+      color: #ffd700;
+      font-size: 1rem;
+      animation: drift 10s linear infinite;
+      z-index: 0;
+    }
+    @keyframes drift {
+      0% { transform: translateY(0) rotate(0); opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Balloons */
+    .balloon {
+      position: fixed;
+      bottom: -100px;
+      font-size: 2rem;
+      animation: rise 8s linear forwards;
+      z-index: 0;
+    }
+    @keyframes rise {
+      to { transform: translateY(-120vh); opacity: 0; }
+    }
+
+    /* Final */
+    .final-message {
+      margin-top: 40px;
+      font-size: 1.5rem;
+      text-align: center;
+      color: #ff1493;
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+    .final-message.visible { opacity: 1; }
+  </style>
+</head>
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" id="page1">
+    <div class="floating-text">Happy Birthday Aafraa 💌</div>
+    <button onclick="nextPage()">Click here dumbo</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" id="page2">
+    <div class="letter">
+      <h2>To My Dearest Aafraa 💕</h2>
+
+      <p class="fade-in">Hey aafraa 😔 ik it's been a long time since we talked. i know things aren't the same between us now, but i couldn't let your special day pass without reminding you of something important</p>
+      <p class="fade-in">First, thank you. Thank you for being in my life, for giving me memories that i'll always carry with me, for teaching me what love really feels like. idk, even if ( if ) it was fake or not, thanks for making me feel loved. Thank you for your laughter (even tho i didn't hear that lol, i still love it), your kindness, the way you talk, the way you listen to my so-called yapp (kinda miss), and even your little dumb ass moments that always made me smile. you've been such a light in my world, and i'll always be grateful that i got the chance to love you.
+
+i want you to know, even if i don't say it enough, i love you. i love the way you love your cat, the way you care about people (maybe you don't) haha i'll always be rooting for you. you are so incredibly beautiful. honestly SUCH A GODDESS ahm sometimes i just get lost staring at you, your eyes like damn, because no words can really capture how stunning and fucking gorgeous you are. you are the prettiest person to me, inside and out. and i just want you to know this: you deserve so much love. not just today. i still remember that day when you used to get angry at me. when you yell at me, when you get annoyed, i swear, i find it the cutest thing ever. it makes me fall for you even harder, because it's you.
+
+i probably wrote too much, so now uhm idk like thank you ig for everything. you don't have to unblock me or something :) just stay happy this is all i want from you and that was my whole motive: to keep you happy. so yeah BE Happy mf and take care of yourself. i don't want any drama, that's why i said don't unblock me bcs on this birthday, i just want the universe to shower you with the same happiness you want. i hope today is filled with love, laughter, and everything that makes your heart feel full. you deserve nothing less than the absolute best💗</p>
+      <p class="fade-in">so happy birthday, my love. may this year bring you closer to your dreams, may it surprise you with joy, and may it remind you again and again how deeply i love you even if no one else does, i will. happy birthday dumb ass :3</p>
+
+      <!-- chut -->
+      <div class="compliments fade-in">
+        <h3>Little Secrets ig 💌</h3>
+        <button onclick="revealCompliment(1)">Click to Reveal</button>
+        <p id="c1" class="compliment-text">you are FUCKING DUMB ass </p>
+        <button onclick="revealCompliment(2)">Click to Reveal</button>
+        <p id="c2" class="compliment-text">but you are my dumb ass hehe ≧ ▽ ≦ </p>
+        <button onclick="revealCompliment(3)">Click to Reveal</button>
+        <p id="c3" class="compliment-text">id choose you in every universe:3</p>
+      </div>
+
+      <!-- chut ka Quiz -->
+      <div class="quiz fade-in">
+        <h3> Quiz Time BBG </h3>
+        
+        <div class="quiz-item">
+          <div class="quiz-question">Who's the bigger idiot? </div>
+          <button class="quiz-answer" onclick="showResult(this,'Of course me,im fucking Psyduck😔')">Me</button>
+          <button class="quiz-answer" onclick="showResult(this,'Neh neh wrong')">You</button>
+          <div class="quiz-result"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-question"> What's Aafraa's spirit animal?</div>
+          <button class="quiz-answer" onclick="showResult(this,'hell yeah sleeping princess')">snorlax</button>
+          <button class="quiz-answer" onclick="showResult(this,'accurate ,now pls dont bite me > . <')">angry kitty</button>
+          <div class="quiz-result"></div>
+        </div>
+
+        <div class="quiz-item">
+          <div class="quiz-question">if i turn into a meme would  you share me or save me ?</div>
+          <button class="quiz-answer" onclick="showResult(this,'something are too rare to share..like me with you')"> share me </button>
+          <button class="quiz-answer" onclick="showResult(this,'so im officially in your gallery now  ')">save me</button>
+          <div class="quiz-result"></div>
+        </div>
+      </div>
+
+      <!-- Random aah comp -->
+      <div class="fade-in" style="text-align:center; margin:30px 0;">
+        <h3>Click for a Random  aah Compliment 🌈</h3>
+        <button onclick="randomCompliment()">Surprise Me!</button>
+        <p id="randomText" style="margin-top:10px; color:#ff1493; font-style:italic;"></p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline fade-in">
+        <h3>i wish you liked all of this🌹</h3>
+        <div>STAR⭐FOR YOU </div>
+        <div>💌I wish i could see your reaction but okay stay happy blud</div>
+        <div> AS YOU SAID YOU LIKE TULIPS ALOT RIGHT? SO I CANT GIVE THEM TO YOU IN REAL LIFE SO I THO OD DOING THIS I HOPE YOU LIKE IT.</div>
+      </div>
+
+      <!-- Photos -->
+      <div class="photos fade-in">
+        <div class="polaroid">
+          <img src="flower1.jpg" alt="Flowers">
+          <p>hand made love for you</p>
+        </div>
+        <div class="polaroid">
+          <img src="middleflower.jpg" alt="Flowers">
+          <p>Just for you🌷 </p>
+        </div>
+        <div class="polaroid">
+          <img src="flower2.jpg" alt="Flowers">
+          <p>hand made love for you</p>
+        </div>
+      </div>
+
+      <!-- Love Counter -->
+      <div class="fade-in" style="text-align:center; margin-top:30px;">
+        <h3>DAY COUNTER ⏳</h3>
+        <p id="loveDays"></p>
+      </div>
+
+      <!-- Final -->
+      <div class="final-message" id="finalMsg">
+        I DIDNT WANT ANYONE BETTER, I WANTED US BETTER BUT OAKY YAWR MUAH LY💌 
+      </div>
+
+      <p style="text-align:center; margin-top:20px; font-style:italic; color:#999;">
+        Made by an idiot
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function nextPage() {
+      document.getElementById("page1").classList.remove("active");
+      document.getElementById("page2").classList.add("active");
+    }
+
+    // Falling hearts
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💗";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 500);
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "🎂";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 500);
+
+    // Sparkles
+    setInterval(() => {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("sparkle");
+      sparkle.innerHTML = "✨";
+      sparkle.style.left = Math.random() * window.innerWidth + "px";
+      sparkle.style.top = Math.random() * window.innerHeight + "px";
+      sparkle.style.fontSize = (10 + Math.random() * 20) + "px";
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 10000);
+    }, 1000);
+
+    // Balloons
+    setInterval(() => {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.innerHTML = ["🎈I ❤ U","🎈Snorlax 💕","🎈silly"][Math.floor(Math.random()*3)];
+      balloon.style.left = Math.random() * window.innerWidth + "px";
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 8000);
+    }, 4000);
+
+    // Fade-in scroll
+    const faders = document.querySelectorAll('.fade-in');
+    window.addEventListener('scroll', () => {
+      faders.forEach(fade => {
+        const rect = fade.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) fade.classList.add('visible');
+      });
+    });
+
+    // Compliments
+    function revealCompliment(n) {
+      document.getElementById("c"+n).style.display="block";
+    }
+
+    // Quiz
+    function showResult(button, text) {
+      // Find the result div that's in the same question group as the button
+      const questionGroup = button.parentElement;
+      const resultDiv = questionGroup.querySelector('.quiz-result');
+      resultDiv.textContent = text;
+    }
+
+    // Random compliment generator
+    const compliments = [
+      "Compliment for you ??? Take a wild guess maybe next year🤣",
+      "Why do you even need a compliment? You're already full of yourself",
+      "Should I really give you a compliment, or will you accept your defeat?",
+      "You don't even realize how amazing you are, do you?",
+      " If you were a fruit, you'd be a fine-apple ;)"
+    ];
+    function randomCompliment() {
+      document.getElementById("randomText").textContent =
+        compliments[Math.floor(Math.random()*compliments.length)];
+    }
+
+    // Love counter (set your start date here)
+    const startDate = new Date("2024-010-22"); // change this
+    function updateLoveDays() {
+      const today = new Date();
+      const diff = Math.floor((today - startDate)/(1000*60*60*24));
+      document.getElementById("loveDays").textContent =
+        "we have been together for so long omg almost year fucking 😨" + diff + " days 💕";
+    }
+    updateLoveDays();
+
+    // Final message
+    window.addEventListener('scroll', () => {
+      const final = document.getElementById("finalMsg");
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+        final.classList.add('visible');
+      }
+    });
+  </script>
+</body>
+</html>
